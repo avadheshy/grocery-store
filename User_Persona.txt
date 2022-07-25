@@ -1,0 +1,156 @@
+USER - 1
+Abhishek Prasad: [Representing (18-23)age group]
+
+Personal Information:
+Age: 20 years
+Gender: Male
+Ethnicity: Indian
+Personal Status: Unmarried
+Hometown: Bangalore, India
+Professional Status: Student(Undergrad)
+Salary: N/A
+Work Location: Bangalore,India
+
+User Environment:
+- College student thus spends half of the day in College
+- Evenings spent with friends.
+- Late evenings at hostel, either studying or resting.
+- On weekends, spends time finishing up personal or curriculam related work.
+
+Device Accessibilty - Mobile and Laptop
+Device Usage order - Mobile>Laptop
+
+User Behaviour:
+- Spends most of the surfing time watching movies or series.
+- Also surfs through the internet for academics.
+- Prefers to buy things online, rather than offline.
+- Avid user of online shopping portals.
+
+User Goals:
+- Prefers online shopping, thus looking for a place to buy day-to-day groceries
+- Looking for a simple and quick interface.
+- Would like an app with easy-to-understand transactions.
+
+Scenario:
+"I buy groceries a few times a week, usually at the downstairs shop. But many of the items needed are generally unavailable. Would be nice to get go-to website for everything"
+
+USER - 2
+Vivek Kumar: [Representing (24-33)age group]
+
+Personal Information:
+Age: 27 years
+Gender: Male
+Ethnicity: Indian
+Personal Status: unmarried
+Hometown: Patna, India
+Professional Status: Developer at TCS
+Salary: Rs 80,000 per month
+Work Location: Delhi,India
+
+User Environment:
+- Working Individual thus spends 8-10 hours of the day in office
+- Evenings spent at home resting.
+- On weekends, spends time finishing up personal work or going out with friends
+
+Device Accessibilty - Mobile and Laptop
+Device Usage order - Laptop>Mobile
+
+User Behaviour:
+- Spends less time on internet through the week.
+- Usually surfs through the internet looking up tech-related information for work.
+- Has less time to go and get groceries.
+- Prefers to buy things online, rather than offline.
+
+User Goals:
+- Has less time in hand to go shopping outside, thus looking for an online alternative.
+- Looking for a simple and quick interface.
+- Would like an app with easy-to-understand transactions.
+- A place with affordable price range.
+
+Scenario:
+"I buy groceries a few times a week, usually at the downstairs shop. But the lack of time in my hand and lack of variety in the shop is a bit off-putting. Would love another alternative"
+
+
+USER - 3
+Binod Pandey: [Representing (34-45)age group]
+
+Personal Information:
+Age: 41 years
+Gender: Male
+Ethnicity: Indian
+Personal Status: Married
+Hometown: Indore, India
+Professional Status: Restaurant Owner
+Salary: Rs.90,000 to Rs.1,50,000 per month
+Work Location: Kolkata,India
+
+User Environment:
+- As a restaurant owner spends most of his time at his restaurant.
+- Gets home late at night. 
+- Has less time in hand to manage household affairs.
+- On Sundays, spends time resting.
+
+Device Accessibilty - Mobile.
+Device Usage order - Mobile.
+
+User Behaviour:
+- Has minimal time in had to surf the internet.
+- Looks up through the net for new recipes and ingredients and hospitality related topics.
+- Has no preference regarding online or offline shopping.
+- Occasionally uses shopping portals.
+
+User Goals:
+- Has minimal time in hand to go out shopping groceries, so an alternative which can reduce the effort a few times,could be good.
+- Looking for a simple and quick interface.
+- Would like an app with easy-to-understand transactions.
+- User reviews regarding the products to decide what to buy and where to buy.
+
+Scenario:
+"I generally go buying groceries on alternate mornings. Generally the fresher the items the better. As I am generally busy, sometimes it gets too hectic."
+
+
+USER - 4
+Brijesh Prasad Singh[Representing (46+)age group]
+
+Personal Information:
+Age: 55 years
+Gender: Male
+Ethnicity: Indian
+Personal Status: Married
+Hometown: Lucknow, India
+Professional Status: Economics Professor
+Salary: 1,00,000 per month
+Work Location: Lucknow ,India
+
+User Environment:
+- As a Professor he spents most of the day teaching at college.
+- Has colleagues of similar age group.
+- On weekends he is surrounded by his family at home.
+- Less accustomed to technology
+- Prefers offline shopping
+
+Device Accessibilty - Mobile
+Device Usage order - Mobile
+
+User Behaviour:
+- Rarely spends time on the internet.
+- Uses phone to look up news.
+- Prefers to buy things offline, rather than online.
+- Scrolls through shopping portals at rare moments.
+- Has less chance of buying products online.
+- Less accustomed with technology.
+- But willing to try out new ways to reduce physical effort.
+
+User Goals:
+- Would like an easy to understand interface.
+- Will need properly reviewed products.
+- Seller's trustworthiness would be considered.
+- Easier transactions.
+- Affordable price range.
+
+Scenario:
+"I usually buy groceries while coming back from a walk. Although it is usually convinient, but carrying heavy loads takes a toll on the body. If there is a trustworthy alternative, it would be highly appreciated"
+
+
+
+
