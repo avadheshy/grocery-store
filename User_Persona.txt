@@ -68,7 +68,10 @@ User Goals:
 - A place with affordable price range.
 
 Scenario:
-"I buy groceries a few times a week, usually at the downstairs shop. But the lack of time in my hand and lack of variety in the shop is a bit off-putting. Would love another alternative"
+"I buy groceries a few times a week, usually at the downstairs shop. But the 
+lack of time in my 
+hand and lack of variety in the shop is a bit off-putting. Would love another 
+alternative"
 
 
 USER - 3
