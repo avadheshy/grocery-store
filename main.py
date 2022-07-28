@@ -1,46 +1,74 @@
-from fastapi import FastAPI,Depends
-from sqlalchemy import Column,String,Integer,Boolean
-from database import SessionLocal, engine,Base
-# import model
-from pydantic import  BaseModel
-# model.Base.metadata.create_all(bind=engine)
-from sqlalchemy.orm import Session
+from fastapi import FastAPI, Body, Depends
+import schemas
+import models
+
+from database import Base, engine, SessionLocal
+from sqlalchemy.orm import Session 
+
+Base.metadata.create_all(engine)
+
+def get_session():
+    session = SessionLocal()
+    try:
+        yield session
+    finally:
+        session.close()
+
 app = FastAPI()
 
-# models
-class User(Base):
-    __tablename__ = "users"
-    id = Column(Integer, primary_key=True, index=True)
-    email = Column(String(50), unique=True)
-    #is_active=Column(Boolean,default=True)
+# fakeDatabase = {
+#     1:{'task':'Clean car'},
+#     2:{'task':'Write blog'},
+#     3:{'task':'Start stream'},
+# }
 
-# schema
-class UserSchema(BaseModel):
-    id:int
-    email:str
-    is_active=bool
+@app.get("/")
+def getItems(session: Session = Depends(get_session)):
+    items = session.query(models.Item).all()
+    return items
 
-    class config:
-        orm_mode=True
+@app.get("/{id}")
+def getItem(id:int, session: Session = Depends(get_session)):
+    item = session.query(models.Item).get(id)
+    return item
 
-Base.metadata.create_all(bind=engine)
+#option #1
+# @app.post("/")
+# def addItem(task:str):
+#     newId = len(fakeDatabase.keys()) + 1
+#     fakeDatabase[newId] = {"task":task}
+#     return fakeDatabase
 
-def get_db():
-    db=SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+#Option #2
+@app.post("/")
+def addItem(item:schemas.Item, session: Session = Depends(get_session)):
+    item = models.Item(task = item.task)
+    session.add(item)
+    session.commit()
+    session.refresh(item)
 
-@app.post("/users",response_model=UserSchema)
-def index(user:UserSchema,db:Session=Depends(get_db)):
-    # db work will be here
-    new_user=User(email=user.email,id=user.id,is_active=user.is_active)
-    db.add(new_user)
-    db.commit()
-    return new_user
+    return item
+
+#Option #3
+# @app.post("/")
+# def addItem(body = Body()):
+#     newId = len(fakeDatabase.keys()) + 1
+#     fakeDatabase[newId] = {"task":body['task']}
+#     return fakeDatabase
 
 
-@app.get("/users",response_model=list[UserSchema])
-def index(user:UserSchema,db:Session=Depends(get_db)):
-    return db.quary(User).all()
+@app.put("/{id}")
+def updateItem(id:int, item:schemas.Item, session: Session = Depends(get_session)):
+    itemObject = session.query(models.Item).get(id)
+    itemObject.task = item.task
+    session.commit()
+    return itemObject
+
+
+@app.delete("/{id}")
+def deleteItem(id:int, session: Session = Depends(get_session)):
+    itemObject = session.query(models.Item).get(id)
+    session.delete(itemObject)
+    session.commit()
+    session.close()
+    return 'Item was deleted...'
