@@ -8,10 +8,22 @@
 </head>
 <body>
     <h1>This is a home page</h1>
-    <form action="/about">
+    <!-- <form action="">
         <input type="text" name="" id="" placeholder="username"><br>
         <input type="password" placeholder="password"><br>
         <button type="submit">submit</button>
-    </form>
+    </form> -->
+    <table border="1px">
+        <tr>
+            <th>id</th>
+            <th>about</th>
+        </tr>
+       {% for abc in items%}
+        <tr>
+            <td>{{abc.id}}</td>
+            <td>{{abc.task}}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
