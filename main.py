@@ -1,7 +1,15 @@
+import shutil
 from fastapi import FastAPI, Body, Depends,Request
 from fastapi.templating import Jinja2Templates
 import schemas
 import models
+from fastapi import File,UploadFile
+import secrets
+from typing import List
+from fastapi.staticfiles import StaticFiles
+# from PIL import Image
+app = FastAPI()
+app.mount("/static",StaticFiles(directory="static"),name="static")
 
 from database import Base, engine, SessionLocal
 from sqlalchemy.orm import Session 
@@ -15,9 +23,11 @@ def get_session():
     finally:
         session.close()
 
-app = FastAPI()
 
 
+# @app.post('/img')
+# async def root(file:UploadFile=File(...)):
+#     with open()
 
 @app.get("/")
 def getItems(request:Request,session: Session = Depends(get_session)):

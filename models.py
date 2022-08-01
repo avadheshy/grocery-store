@@ -1,6 +1,8 @@
 
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey, Boolean
 from database import Base 
+from sqlalchemy.orm import relationship
+from sqlalchemy_utils import URLType
 
 class Item(Base):
     __tablename__ = 'items'
@@ -20,24 +22,23 @@ class User(Base):
 class Product(Base):
     ____tablename__='products'
     name=Column(String(256))
-    id=Column(Integer)
+    product_id=Column(Integer)
     category=Column(String(256))
-    image=Column(Integer)
+    image=column(URLType)
     price=Column(Integer)
-    description=Column(Integer)
+    description=Column(String(256))
 
 class Order(Base):
     ____tablename__='orders'
-    id=Column(Integer)
-    user=Column(String(256))
-    product_name=Column(String(256))
-
+    order_id=Column(Integer)
+    user_id=Column(String(256) )
+    product_id=Column(String(256)
+    
 class Payment(Base):
     ____tablename__='payments'
     id=Column(Integer)
-    user_id=Column(Integer)
-    product_id=Column(Integer)
-    product_name=Column(String(256))
-
-
+    user=Column(Integer) # foreign key for user
+    product=Column(Integer) # foreign key for product
+    price=Column(Integer) 
+    status=Column(Boolean) 
 """
