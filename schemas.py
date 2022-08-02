@@ -1,4 +1,9 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, HttpUrl
+from bson import ObjectId
 
-class Item(BaseModel):
-    task:str
+
+class Product(BaseModel):
+    name:str
+    category:str
+    price:int
+    description:str
