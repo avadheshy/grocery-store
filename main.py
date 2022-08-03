@@ -34,8 +34,9 @@ async def index(request:Request):
     
 
 @app.post("/additem")
-async def addItem(item:schemas.Product):
-    
+async def addItem():
+    for i in range(100):
+        print('hello')
     item=dict(item)
     print(item)
     prod_table.insert_one(item)
