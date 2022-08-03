@@ -4,15 +4,19 @@
    <div class="container">
    <table class="col-sm-10" border="1px">
         <tr>
-            <th>Product <br>
-            id</th>
+            <th>Product_id</th>
+            <th>title</th>
             <th>Description</th>
+            <th>name</th>
         </tr>
-       {% for item in items%}
+       {% for item in items %}
         <tr>
-            <td>{{item.product_id}}</td>
-            <td>{{item.name}}</td>
+            
+            <td><a href="/{{item.product_id}}">{{item.product_id}}</a></td>
+            
+            <td>{{item.title}}</td>
             <td>{{item.description}}</td>
+            <td>{{item.name}}</td>
         </tr>
         {% endfor %}
     </table>

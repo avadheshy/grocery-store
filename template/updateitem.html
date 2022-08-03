@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="updateitem" method="POST">
+<input type="text" placeholder="id" name="product_id"><br>
+<input type="text" placeholder="title" name="title"><br>
+<input type="text" placeholder="decs" name="description"><br>
+<input type="text" placeholder="category" name="category"><br>
+<input type="text" placeholder="quantity" name="quantity"><br>
+<input type="text" placeholder="price" name="price"><br>
+<button type="submit">submit</button>
+</form>
+{% endblock %}

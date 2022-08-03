@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <table class="col-sm-10" border="1px">
+        <tr>
+            <th>Product_id</th>
+            <th>title</th>
+            <th>Description</th>
+            <th>name</th>
+        </tr>
+
+        <tr>
+            <td>{{items.product_id}}</td>
+            <td>{{items.title}}</td>
+            <td>{{items.description}}</td>
+            <td>{{items.price}}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}
