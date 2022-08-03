@@ -37,6 +37,11 @@ async def index(request: Request):
     return templates.TemplateResponse("home.html", {'request': request, 'items': all_products})
 
 
+@app.get('/add')
+async def add(request: Request):
+
+    return templates.TemplateResponse("additem.html", {'request': request})
+
 @app.post("/additem")
 async def addItem(product_id: int = Form(), title: str = Form(), description: str = Form(),
                   category: str = Form(), quantity: int = Form(), price: float = Form()):
@@ -47,36 +52,37 @@ async def addItem(product_id: int = Form(), title: str = Form(), description: st
     item['category'] = category
     item['quantity'] = quantity
     item['price'] = price
+    print(item, '\n\n\n')
     prod_table.insert_one(item)
 
     return "one item added"
 
 
-@app.get('/add')
-async def add(request: Request):
 
-    return templates.TemplateResponse("additem.html", {'request': request})
+@app.get("/update")
+async def update(request: Request):
 
-
-@app.get('/{id}')
-def find(id, request: Request):
-    obj = prod_table.find_one({ 'product_id': int(id) })
-    return templates.TemplateResponse("one_item.html", {'request': request, 'items': obj})
+    return templates.TemplateResponse("updateitem.html", {'request': request})
 
 
 
 @app.put("/updateitem")
 async def updateitem(product_id: int = Form(), title: str = Form(), description: str = Form(),
-                  category: str = Form(), quantity: int = Form(), price: float = Form()):
+                     category: str = Form(), quantity: int = Form(), price: float = Form()):
     item = {}
-    filter = {'product_id':product_id}
+    filter = {'product_id': product_id}
     item['product_id'] = product_id
     item['title'] = title
     item['description'] = description
     item['category'] = category
     item['quantity'] = quantity
     item['price'] = price
-    newvalues = { "$set": item }
-    prod_table.update_one(filter,newvalues)
+    newvalues = {"$set": item}
+    prod_table.update_one(filter, newvalues)
 
     return "one item added"
+
+@app.get('/{id}')
+def find(id: int, request: Request):
+    obj = prod_table.find_one({'product_id': id})
+    return templates.TemplateResponse("one_item.html", {'request': request, 'items': obj})
