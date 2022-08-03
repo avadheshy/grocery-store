@@ -1,4 +1,4 @@
-import imp
+
 from sqlalchemy import create_engine,MetaData
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -10,5 +10,5 @@ from pymongo import MongoClient
 # SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 # Base = declarative_base()
 client = MongoClient("mongodb+srv://catalogue:catalogue12@cataloguedb.baqy2.mongodb.net/test")
-# db = client.catalog
-# collection = db.products
+db = client.catalog
+prod_table = db.products
