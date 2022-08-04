@@ -6,7 +6,7 @@
             <th>Product_id</th>
             <th>title</th>
             <th>Description</th>
-            <th>name</th>
+            <th>price</th>
         </tr>
 
         <tr>
@@ -16,5 +16,8 @@
             <td>{{items.price}}</td>
         </tr>
     </table>
+    <br><br><br>
+
+    <a href="deleteitem/{{items.product_id}}"><button type ="submit">delete</button></a>
 </div>
 {% endblock %}

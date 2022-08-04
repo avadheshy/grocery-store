@@ -10,6 +10,7 @@
             <th>name</th>
         </tr>
        {% for item in items %}
+       {% if item.is_available %}
         <tr>
             
             <td><a href="/{{item.product_id}}">{{item.product_id}}</a></td>
@@ -18,7 +19,15 @@
             <td>{{item.description}}</td>
             <td>{{item.name}}</td>
         </tr>
+        {% endif %}
         {% endfor %}
     </table>
+    </div>
+    <div class="container">
+    <br><hr>
+    <a href="/add"> Add Product </a>
+    <br>
+    <hr>
+    <a href="/update">update product</a>
     </div>
 {% endblock %}

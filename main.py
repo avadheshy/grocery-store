@@ -23,14 +23,6 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory='template')
 
 
-def get_session():
-    session = SessionLocal()
-    try:
-        yield session
-    finally:
-        session.close()
-
-
 @app.get('/')
 async def index(request: Request):
     all_products = prod_table.find()
@@ -42,21 +34,21 @@ async def add(request: Request):
 
     return templates.TemplateResponse("additem.html", {'request': request})
 
+
 @app.post("/additem")
 async def addItem(product_id: int = Form(), title: str = Form(), description: str = Form(),
                   category: str = Form(), quantity: int = Form(), price: float = Form()):
     item = {}
+    item['is_available'] = True
     item['product_id'] = product_id
     item['title'] = title
     item['description'] = description
     item['category'] = category
     item['quantity'] = quantity
     item['price'] = price
-    print(item, '\n\n\n')
     prod_table.insert_one(item)
 
     return "one item added"
-
 
 
 @app.get("/update")
@@ -65,8 +57,7 @@ async def update(request: Request):
     return templates.TemplateResponse("updateitem.html", {'request': request})
 
 
-
-@app.put("/updateitem")
+@app.api_route("/updateitem", methods=['GET','PUT'])
 async def updateitem(product_id: int = Form(), title: str = Form(), description: str = Form(),
                      category: str = Form(), quantity: int = Form(), price: float = Form()):
     item = {}
@@ -81,6 +72,27 @@ async def updateitem(product_id: int = Form(), title: str = Form(), description:
     prod_table.update_one(filter, newvalues)
 
     return "one item added"
+
+
+
+
+
+@app.get('/cart')
+def cart(request: Request):
+    return templates.TemplateResponse("cart.html", {'request': request})
+
+
+
+
+@app.api_route('/deleteitem/{id}', methods=['GET','PUT'])
+async def deleteitem(id: int):
+    print('hello', '\n \n \n')
+    filter = {'product_id': id}
+    item = {}
+    item['is_available'] = False
+    new_update = {'$set':item}
+    prod_table.update_one(filter, new_update)
+    return 'one item deleted'
 
 @app.get('/{id}')
 def find(id: int, request: Request):
